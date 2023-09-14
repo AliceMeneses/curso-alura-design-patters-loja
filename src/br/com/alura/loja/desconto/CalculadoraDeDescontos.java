@@ -7,16 +7,10 @@ import br.com.alura.loja.orcamento.Orcamento;
 public class CalculadoraDeDescontos {
 
 	public BigDecimal calcular(Orcamento orcamento) {
+
+		Desconto desconto = new DescontoLivraria(new DescontoCompraGrande(new SemDesconto()));
 		
-		if (orcamento.getQuantidadeItens() > 5) {
-			return orcamento.getValor().multiply(new BigDecimal("0.1"));
-		}
-		
-		if (orcamento.getValor().compareTo(new BigDecimal("500")) > 0) {
-			return orcamento.getValor().multiply(new BigDecimal("0.1"));
-		}
-		
-		return BigDecimal.ZERO;
+		return desconto.calcular(orcamento);
 	}
 	
 }

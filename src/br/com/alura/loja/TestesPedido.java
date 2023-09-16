@@ -3,10 +3,10 @@ package br.com.alura.loja;
 import java.math.BigDecimal;
 import java.util.List;
 
-import br.com.alura.loja.acao.EnviarEmailPedido;
-import br.com.alura.loja.acao.PedidoRepository;
 import br.com.alura.loja.pedido.GeraPedido;
 import br.com.alura.loja.pedido.GeraPedidoHandler;
+import br.com.alura.loja.pedido.acao.EnviarEmailPedido;
+import br.com.alura.loja.pedido.acao.PedidoRepository;
 
 public class TestesPedido {
 

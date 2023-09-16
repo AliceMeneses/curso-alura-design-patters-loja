@@ -6,7 +6,9 @@ import br.com.alura.loja.exception.DomainException;
 
 public abstract class SituacaoOrcamento {
 	
-	public abstract BigDecimal calcularValorDescontoExtra(Orcamento orcamento);
+	public BigDecimal calcularValorDescontoExtra(Orcamento orcamento) {
+		return BigDecimal.ZERO;
+	}
 	
 	public void aprovar(Orcamento orcamento) {
 		throw new DomainException("Orçamento não pode ser aprovado");

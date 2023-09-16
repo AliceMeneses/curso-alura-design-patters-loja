@@ -11,6 +11,7 @@ public class Orcamento {
 	public Orcamento(BigDecimal valor, int quantidadeItens) {
 		this.valor = valor;
 		this.quantidadeItens = quantidadeItens;
+		situacao = new EmAnalise();
 	}
 	
 	public BigDecimal getValor() {

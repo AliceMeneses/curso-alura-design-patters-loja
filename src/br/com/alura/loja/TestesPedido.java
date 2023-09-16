@@ -15,7 +15,7 @@ public class TestesPedido {
 		int quantidadeItens = Integer.parseInt(args[2]);
 		
 		GeraPedido geraPedido = new GeraPedido(cliente, valorOrcamento, quantidadeItens);
-		GeraPedidoHandler geraPedidoHandler = new GeraPedidoHandler(/*repository, EmailService*/);
+		GeraPedidoHandler geraPedidoHandler = new GeraPedidoHandler();
 		geraPedidoHandler.executar(geraPedido);
 	}
 	

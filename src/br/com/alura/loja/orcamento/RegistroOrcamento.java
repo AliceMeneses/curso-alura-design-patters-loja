@@ -3,8 +3,15 @@ package br.com.alura.loja.orcamento;
 import java.util.Map;
 
 import br.com.alura.loja.exception.DomainException;
+import br.com.alura.loja.http.HttpAdapter;
 
 public class RegistroOrcamento {
+	
+	private HttpAdapter httpAdapter;
+	
+	public RegistroOrcamento(HttpAdapter httpAdapter) {
+		this.httpAdapter = httpAdapter;
+	}
 	
 	public void registrar(Orcamento orcamento) {
 		
@@ -19,8 +26,7 @@ public class RegistroOrcamento {
 				"quantidadeItens", orcamento.getQuantidadeItens()
 			);
 		
-		JavaHttpClient javaHttpClient = new JavaHttpClient();
-		javaHttpClient.post(url, dados);
+		httpAdapter.post(url, dados);
 	}
 	
 }

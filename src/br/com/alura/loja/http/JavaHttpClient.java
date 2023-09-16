@@ -1,10 +1,10 @@
-package br.com.alura.loja.orcamento;
+package br.com.alura.loja.http;
 
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
 
-public class JavaHttpClient {
+public class JavaHttpClient implements HttpAdapter{
 	
 	public void post(String url, Map<String, Object> dados) {
 		try {

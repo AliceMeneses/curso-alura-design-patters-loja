@@ -10,9 +10,13 @@ public class TestesPedido {
 
 	
 	public static void main(String[] args) {
-		Orcamento orcamento = new Orcamento(new BigDecimal(600), 4);
 		
-		String cliente = "Alice";
+		String cliente = args[0];
+		BigDecimal valorOrcamento = new BigDecimal(args[1]);
+		int quantidadeItens = Integer.parseInt(args[2]);
+		
+		Orcamento orcamento = new Orcamento(valorOrcamento, quantidadeItens);
+		
 		LocalDateTime data = LocalDateTime.now();
 		
 		Pedido pedido = new Pedido(cliente, data, orcamento);

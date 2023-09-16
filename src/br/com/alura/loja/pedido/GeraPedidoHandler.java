@@ -1,13 +1,20 @@
 package br.com.alura.loja.pedido;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-import br.com.alura.loja.acao.EnviarEmailPedido;
-import br.com.alura.loja.acao.PedidoRepository;
+import br.com.alura.loja.acao.AcaoAposGerarPedido;
 import br.com.alura.loja.orcamento.Orcamento;
 
 public class GeraPedidoHandler {
+	
+	private List<AcaoAposGerarPedido> acoes;
+	
 		
+	public GeraPedidoHandler(List<AcaoAposGerarPedido> acoes) {
+		this.acoes = acoes;
+	}
+
 	public void executar(GeraPedido dados) {
 		Orcamento orcamento = new Orcamento(dados.getValorOrcamento(), dados.getQuantidadeItens());
 		
@@ -15,11 +22,7 @@ public class GeraPedidoHandler {
 		
 		Pedido pedido = new Pedido(dados.getCliente(), data, orcamento);
 		
-		PedidoRepository repository = new PedidoRepository();
-		repository.executar(pedido);
-		
-		EnviarEmailPedido enviarEmailPedido = new EnviarEmailPedido();
-		enviarEmailPedido.executar(pedido);
+		acoes.forEach(a -> a.executar(pedido));
 	}
 
 }

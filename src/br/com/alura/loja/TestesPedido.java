@@ -15,9 +15,8 @@ public class TestesPedido {
 		
 		String cliente = args[0];
 		BigDecimal valorOrcamento = new BigDecimal(args[1]);
-		int quantidadeItens = Integer.parseInt(args[2]);
 		
-		GeraPedido geraPedido = new GeraPedido(cliente, valorOrcamento, quantidadeItens);
+		GeraPedido geraPedido = new GeraPedido(cliente, valorOrcamento);
 		GeraPedidoHandler geraPedidoHandler = new GeraPedidoHandler(List.of(
 					new PedidoRepository(),
 					new EnviarEmailPedido()
